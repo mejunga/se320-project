@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.openjfx.javafxplugin' version '0.1.0' 
     id 'org.beryx.jlink' version '2.26.0'
 }
 
@@ -10,10 +10,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.openjfx:javafx-controls:21'
-    implementation 'org.openjfx:javafx-fxml:21'
-    implementation 'org.openjfx:javafx-graphics:21'
-    implementation 'org.openjfx:javafx-web:21'
     testImplementation 'junit:junit:4.13.2'
 }
 
@@ -39,15 +35,6 @@ sourceSets {
 javafx {
     version = "21"
     modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.web']
-}
-
-tasks.named('run') {
-    doFirst {
-        jvmArgs = [
-            "--module-path", classpath.asPath,
-            "--add-modules", "javafx.controls,javafx.fxml,javafx.graphics,javafx.web"
-        ]
-    }
 }
 
 jlink {
