@@ -1,7 +1,10 @@
 module com.app {
-    requires javafx.controls;
-    requires javafx.fxml;
+    requires transitive javafx.controls;
+    requires transitive javafx.fxml;
+    requires transitive javafx.graphics;
+    requires transitive javafx.web;
 
-    opens com.app to javafx.fxml;
     exports com.app;
+
+    opens com.app to javafx.fxml; 
 }
